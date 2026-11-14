@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: mineguard
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "false"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SUPERVISOR_EMAIL
+        sync: false
+      - key: SUPERVISOR_PASSWORD
+        sync: false
+      - key: WORKER_EMAIL
+        sync: false
+      - key: WORKER_PASSWORD
+        sync: false
+      - key: FIREBASE_SERVICE_ACCOUNT_BASE64
+        sync: false

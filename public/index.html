@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0b">
+  <meta name="description" content="MineGuard mine safety incident reporting and hazard tracking.">
+  <title>MineGuard | Mine Safety</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <main id="login-screen" class="login-screen">
+    <section class="login-brand">
+      <div class="brand-mark">M<span>G</span></div>
+      <p class="eyebrow">MINE SAFETY OPERATIONS</p>
+      <h1>Make every<br><em>warning count.</em></h1>
+      <p class="brand-copy">A clearer path from incident report to investigation, corrective action and safer decisions.</p>
+      <div class="login-benefits">
+        <div><span class="benefit-icon">↗</span><span><b>Fast reporting</b><small>From phone or desktop</small></span></div>
+        <div><span class="benefit-icon">▦</span><span><b>Visible follow-up</b><small>One trackable incident record</small></span></div>
+        <div><span class="benefit-icon">⌁</span><span><b>Pattern detection</b><small>Rules flag repeated reports</small></span></div>
+      </div>
+      <p class="login-footer">MINE SAFETY MANAGEMENT</p>
+    </section>
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="mobile-brand"><div class="brand-mark">M<span>G</span></div><b>MineGuard</b></div>
+        <p class="eyebrow">SECURE PORTAL</p>
+        <h2>Welcome back</h2>
+        <p class="muted">Choose your portal and sign in to continue.</p>
+        <div class="role-switch" role="tablist" aria-label="Login portal">
+          <button class="role-option active" type="button" data-role="worker" role="tab" aria-selected="true">Worker login</button>
+          <button class="role-option" type="button" data-role="supervisor" role="tab" aria-selected="false">Supervisor login</button>
+        </div>
+        <form id="login-form">
+          <label for="login-email">Email address</label>
+          <input id="login-email" name="email" type="email" autocomplete="username" placeholder="you@mine.com" required maxlength="254">
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required maxlength="128">
+          <p id="login-error" class="form-error" hidden></p>
+          <button class="btn btn-primary btn-wide" type="submit" id="login-submit">Sign in as worker <span>→</span></button>
+        </form>
+        <div class="demo-credentials">
+          <div class="demo-title"><span class="status-dot"></span> Demo access</div>
+          <p id="demo-credential-text">Worker: worker@mineguard.demo</p>
+          <p id="demo-password-text">Password: Worker@123</p>
+          <button id="fill-demo" class="text-button" type="button">Use demo credentials ↗</button>
+        </div>
+        <p class="privacy-note"><span>▣</span> Photos and incident details are shown only to the reporter and authorized supervisors.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-shell" class="app-shell" hidden>
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark small">M<span>G</span></div>
+        <div><b>MINEGUARD</b><small>SAFETY OPERATIONS</small></div>
+      </div>
+      <div id="sidebar-profile" class="sidebar-profile"></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-bottom">
+        <div class="offline-note"><span class="status-dot"></span><span><b>Secure session</b><small>Role-based access active</small></span></div>
+        <button id="logout-button" class="logout-button"><span>↪</span> Sign out</button>
+      </div>
+    </aside>
+    <div class="main-column">
+      <header class="topbar">
+        <button id="mobile-menu" class="icon-button mobile-menu" aria-label="Open navigation">☰</button>
+        <div><p class="eyebrow" id="topbar-eyebrow">SAFETY WORKSPACE</p><h2 id="page-title">Overview</h2></div>
+        <div class="topbar-right">
+          <div class="avatar" id="topbar-avatar">MG</div>
+          <div class="topbar-user"><b id="topbar-name">User</b><small id="topbar-role">Worker</small></div>
+        </div>
+      </header>
+      <main id="page-content" class="page-content" tabindex="-1">
+        <div class="loading-state"><div class="spinner"></div><span>Loading safety workspace…</span></div>
+      </main>
+      <footer class="app-footer"><span>MineGuard Safety Tracker</span><span>Report hazards early · Follow up visibly</span></footer>
+    </div>
+  </div>
+</body>
+</html>
